@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Jessy | 20 Años de Sabor</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #FD7979;
+            --secondary: #FDACAC;
+            --light: #FFCDC9;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        .bg-primary { background-color: var(--primary); }
+        .text-primary { color: var(--primary); }
+        .bg-secondary { background-color: var(--secondary); }
+        .bg-light { background-color: var(--light); }
+        
+        .nav-link:hover {
+            color: var(--primary);
+            border-bottom: 2px solid var(--primary);
+        }
+        
+        .pizza-card:hover {
+            transform: translateY(-10px);
+            transition: all 0.3s ease;
+        }
+
+        /* Estilo para el botón flotante de WhatsApp */
+        .whatsapp-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366;
+            color: white;
+            padding: 15px;
+            border-radius: 50%;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Navegación -->
+    <nav class="fixed w-full z-50 bg-white/90 backdrop-blur-md shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <div class="flex-shrink-0 flex items-center">
+                    <span class="text-2xl font-bold text-primary tracking-tighter">PIZZA JESSY</span>
+                </div>
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 font-medium">
+                    <a href="#inicio" class="nav-link transition">Inicio</a>
+                    <a href="#menu" class="nav-link transition">Elige tu Pizza</a>
+                    <a href="#reseñas" class="nav-link transition">Reseñas</a>
+                    <a href="#contacto" class="nav-link transition">Contacto</a>
+                </div>
+                <!-- Mobile Button -->
+                <div class="md:hidden">
+                    <button onclick="toggleMenu()" class="text-primary text-2xl focus:outline-none">
+                        <i class="fas fa-bars"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile Menu Overlay -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100 p-4 space-y-4 shadow-lg text-center font-medium">
+            <a href="#inicio" onclick="toggleMenu()" class="block py-2">Inicio</a>
+            <a href="#menu" onclick="toggleMenu()" class="block py-2">Elige tu Pizza</a>
+            <a href="#reseñas" onclick="toggleMenu()" class="block py-2">Reseñas</a>
+            <a href="#contacto" onclick="toggleMenu()" class="block py-2">Contacto</a>
+        </div>
+    </nav>
+
+    <!-- Sección Inicio (Hero) -->
+    <header id="inicio" class="relative h-screen flex items-center justify-center overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" 
+                 alt="Imagen de Pizza Recién Horneada" 
+                 class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-black/40"></div>
+        </div>
+        <div class="relative z-10 text-center text-white px-4">
+            <span class="bg-primary px-4 py-1 rounded-full text-sm font-semibold mb-4 inline-block animate-bounce">20 Años de Tradición</span>
+            <h1 class="text-5xl md:text-7xl font-bold mb-6">El sabor que une a la familia.</h1>
+            <p class="text-xl md:text-2xl mb-8 font-light max-w-2xl mx-auto">Hechas a mano, con amor y los mejores ingredientes desde el primer día.</p>
+            <a href="#menu" class="bg-primary hover:bg-red-500 text-white px-8 py-4 rounded-full text-lg font-bold transition-all shadow-lg transform hover:scale-105">
+                Ver Menú
+            </a>
+        </div>
+    </header>
+
+    <!-- Sección Elige tu Pizza (Menú) -->
+    <section id="menu" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Elige tu Pizza</h2>
+                <div class="h-1 w-20 bg-primary mx-auto"></div>
+                <p class="mt-4 text-gray-500">Nuestras especialidades preparadas al momento.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10">
+                <!-- Pizza Item 1 -->
+                <div class="pizza-card bg-light/20 rounded-3xl overflow-hidden shadow-sm border border-pink-100">
+                    <img src="https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pizza Pepperoni" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-2xl font-bold">La Clásica Jessy</h3>
+                            <span class="text-primary font-bold text-xl">$12.99</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">Doble pepperoni premium, queso mozzarella fundido y nuestra salsa secreta de la casa.</p>
+                        <button class="w-full bg-secondary hover:bg-primary text-white py-2 rounded-xl transition">Añadir al pedido</button>
+                    </div>
+                </div>
+
+                <!-- Pizza Item 2 -->
+                <div class="pizza-card bg-light/20 rounded-3xl overflow-hidden shadow-sm border border-pink-100">
+                    <img src="https://images.unsplash.com/photo-1541745537411-b8046dc6d66c?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pizza Vegetariana" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-2xl font-bold">Huerto Fresco</h3>
+                            <span class="text-primary font-bold text-xl">$11.50</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">Pimientos, cebolla morada, champiñones frescos y aceitunas negras sobre base crujiente.</p>
+                        <button class="w-full bg-secondary hover:bg-primary text-white py-2 rounded-xl transition">Añadir al pedido</button>
+                    </div>
+                </div>
+
+                <!-- Pizza Item 3 -->
+                <div class="pizza-card bg-light/20 rounded-3xl overflow-hidden shadow-sm border border-pink-100">
+                    <img src="https://images.unsplash.com/photo-1513104890138-7c749659a591?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Pizza Especial" class="w-full h-56 object-cover">
+                    <div class="p-6">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="text-2xl font-bold">Suprema 20 Años</h3>
+                            <span class="text-primary font-bold text-xl">$15.00</span>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">Combinación de carnes frías, vegetales y un toque de orégano fresco. Nuestra receta de aniversario.</p>
+                        <button class="w-full bg-secondary hover:bg-primary text-white py-2 rounded-xl transition">Añadir al pedido</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Reseñas -->
+    <section id="reseñas" class="py-24 bg-light/30">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4">Lo que dicen nuestros clientes</h2>
+                <div class="h-1 w-20 bg-primary mx-auto"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Reseña 1 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border-b-4 border-primary">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic text-gray-700 mb-6">"He comprado en Pizza Jessy desde que era niño. La calidad nunca ha bajado, es mi lugar favorito en la ciudad."</p>
+                    <div class="flex items-center">
+                        <div class="bg-primary/20 w-10 h-10 rounded-full flex items-center justify-center font-bold text-primary mr-3">RC</div>
+                        <span class="font-bold text-sm">Ricardo C.</span>
+                    </div>
+                </div>
+                <!-- Reseña 2 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border-b-4 border-primary">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic text-gray-700 mb-6">"La atención es increíble y las pizzas llegan súper calientes. La masa es perfecta, ni muy delgada ni muy gruesa."</p>
+                    <div class="flex items-center">
+                        <div class="bg-primary/20 w-10 h-10 rounded-full flex items-center justify-center font-bold text-primary mr-3">MA</div>
+                        <span class="font-bold text-sm">María A.</span>
+                    </div>
+                </div>
+                <!-- Reseña 3 -->
+                <div class="bg-white p-8 rounded-2xl shadow-sm border-b-4 border-primary">
+                    <div class="flex text-yellow-400 mb-4 text-sm">
+                        <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
+                    </div>
+                    <p class="italic text-gray-700 mb-6">"¡La pizza Suprema es de otro mundo! Recomendado para cualquier reunión familiar o con amigos."</p>
+                    <div class="flex items-center">
+                        <div class="bg-primary/20 w-10 h-10 rounded-full flex items-center justify-center font-bold text-primary mr-3">JP</div>
+                        <span class="font-bold text-sm">Juan P.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección Contacto y Ubicación -->
+    <section id="contacto" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col lg:flex-row gap-16">
+                <!-- Información -->
+                <div class="lg:w-1/2">
+                    <h2 class="text-4xl font-bold mb-8 text-gray-900 text-center lg:text-left">Visítanos o Haz tu Pedido</h2>
+                    <p class="text-gray-600 mb-8 leading-relaxed">Estamos ubicados en el corazón de la ciudad. Ven a disfrutar de una experiencia acogedora o solicita servicio a domicilio rápido.</p>
+                    
+                    <ul class="space-y-6">
+                        <li class="flex items-start">
+                            <div class="bg-light text-primary p-3 rounded-lg mr-4">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Dirección</h4>
+                                <p class="text-gray-500">Calle Las Pizzas 123, Barrio Central</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-light text-primary p-3 rounded-lg mr-4">
+                                <i class="fas fa-phone-alt"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Teléfono</h4>
+                                <p class="text-gray-500">+52 (555) 123-4567</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <div class="bg-light text-primary p-3 rounded-lg mr-4">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4 class="font-bold">Horarios</h4>
+                                <p class="text-gray-500">Mar - Dom: 1:00 PM - 11:00 PM</p>
+                            </div>
+                        </li>
+                    </ul>
+
+                    <div class="mt-10 flex space-x-4">
+                        <a href="#" class="text-2xl text-gray-400 hover:text-primary transition"><i class="fab fa-facebook"></i></a>
+                        <a href="#" class="text-2xl text-gray-400 hover:text-primary transition"><i class="fab fa-instagram"></i></a>
+                        <a href="#" class="text-2xl text-gray-400 hover:text-primary transition"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+
+                <!-- Mapa / Formulario -->
+                <div class="lg:w-1/2 bg-gray-100 rounded-3xl overflow-hidden shadow-inner min-h-[400px] flex items-center justify-center relative">
+                    <!-- Placeholder de mapa -->
+                    <div class="absolute inset-0 bg-gray-200">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15050.0!2d-99.1!3d19.4!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMTnCsDI0JzAwLjAiTiA5OcKwMDYnMDAuMCJX!5e0!3m2!1ses!2smx!4v123456789" 
+                            width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy">
+                        </iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-primary py-8 text-white text-center">
+        <div class="max-w-7xl mx-auto px-4">
+            <p class="font-bold text-xl mb-2">PIZZA JESSY</p>
+            <p class="text-sm opacity-80">&copy; 2024 Pizza Jessy. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- Botón WhatsApp -->
+    <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-btn">
+        <i class="fab fa-whatsapp text-3xl"></i>
+    </a>
+
+    <script>
+        function toggleMenu() {
+            const menu = document.getElementById('mobile-menu');
+            menu.classList.toggle('hidden');
+        }
+    </script>
+</body>
+</html>
